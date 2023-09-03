@@ -1,0 +1,64 @@
+{
+  "name": "cyber-dev",
+  "dockerFile": "${localWorkspaceFolder}/.devcontainer/Dockerfile",
+  "build": {
+    "context": "${localWorkspaceFolder}/.devcontainer/default",
+    "args": {
+      "CUDA": "11.8",
+      "RAPIDS": "23.06",
+      "BASE": "rapidsai/devcontainers:23.10-cpp-mambaforge-ubuntu22.04"
+    }
+  },
+  "capAdd": [
+    "SYS_NICE",
+    "SYS_PTRACE"
+  ],
+  "securityOpt": [
+      "seccomp=unconfined"
+  ],
+  "containerEnv": {
+    "PROJECT_MANIFEST_YML": "/home/coder/cyber-dev/manifest.yaml",
+    "PYTHON_PACKAGE_MANAGER": "conda",
+    "DEFAULT_CONDA_ENV": "cyber",
+    "CUDA_VERSION": "11.8"
+  },
+  "hostRequirements": {
+    "gpu": "optional"
+  },
+  "features": {
+    "ghcr.io/rapidsai/devcontainers/features/rapids-build-utils:23": {}
+  },
+  "overrideFeatureInstallOrder": [
+    "ghcr.io/rapidsai/devcontainers/features/rapids-build-utils"
+  ],
+  "initializeCommand": [
+    "/bin/bash",
+    "-c",
+    "mkdir -m 0755 -p ${localWorkspaceFolder}/../.{aws,cache,config,conda/pkgs,conda/${localWorkspaceFolderBasename}-cuda11.8-envs} ${localWorkspaceFolder}/../{mrc,morpheus}"],
+  "postAttachCommand": [
+    "/bin/bash",
+    "-c",
+    "if [ ${CODESPACES:-false} = 'true' ]; then . devcontainer-utils-post-attach-command; . rapids-post-attach-command; fi"
+  ],
+  "remoteUser": "coder",
+  "containerUser": "root",
+  "workspaceFolder": "/home/coder",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/home/coder/cyber-dev,type=bind,consistency=consistent",
+  "mounts": [
+    "source=${localWorkspaceFolder}/../.aws,target=/home/coder/.aws,type=bind,consistency=consistent",
+    "source=${localWorkspaceFolder}/../.cache,target=/home/coder/.cache,type=bind,consistency=consistent",
+    "source=${localWorkspaceFolder}/../.config,target=/home/coder/.config,type=bind,consistency=consistent",
+    "source=${localWorkspaceFolder}/../.conda/pkgs,target=/home/coder/.conda/pkgs,type=bind,consistency=consistent",
+    "source=${localWorkspaceFolder}/../.conda/${localWorkspaceFolderBasename}-cuda11.8-envs,target=/home/coder/.conda/envs,type=bind,consistency=consistent",
+    "source=${localWorkspaceFolder}/../mrc,target=/home/coder/mrc,type=bind,consistency=consistent",
+    "source=${localWorkspaceFolder}/../morpheus,target=/home/coder/morpheus,type=bind,consistency=consistent",
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.flake8",
+        "nvidia.nsight-vscode-edition"
+      ]
+    }
+  }
+}

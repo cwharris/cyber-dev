@@ -1,0 +1,40 @@
+x-git-defaults: &git_defaults
+    host: github
+    tag: branch-23.11
+    upstream: cwharris
+
+repos:
+
+- name: mrc
+  path: mrc
+  cpp:
+    - name: mrc
+      sub_dir: ""
+      depends: []
+      args: |
+        -DMRC_PYTHON_INPLACE_BUILD=ON
+  python:
+    - name: mrc
+      sub_dir: python
+      depends: []
+  git:
+    <<: *git_defaults
+    repo: mrc
+    tag: cyber-dev
+
+- name: morpheus
+  path: morpheus
+  cpp:
+    - name: libmorpheus
+      sub_dir: ""
+      depends: [mrc]
+      args: |
+        -DMORPHEUS_PYTHON_INPLACE_BUILD=ON
+  python:
+    - name: morpheus
+      sub_dir: ""
+      depends: []
+  git:
+    <<: *git_defaults
+    repo: morpheus
+    tag: cyber-dev
