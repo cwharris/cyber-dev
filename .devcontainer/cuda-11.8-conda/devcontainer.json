@@ -20,7 +20,8 @@
     "PROJECT_MANIFEST_YML": "/home/coder/cyber-dev/manifest.yaml",
     "PYTHON_PACKAGE_MANAGER": "conda",
     "DEFAULT_CONDA_ENV": "cyber",
-    "CUDA_VERSION": "11.8"
+    "CUDA_VERSION": "11.8",
+    "CUDAARCHS": "RAPIDS"
   },
   "hostRequirements": {
     "gpu": "optional"
