@@ -63,3 +63,22 @@ If you would like to perform a debug build, simply pass extra cmake arguments to
 ```
 build-all -DCMAKE_BUILD_TYPE=Debug
 ```
+It's also possible to build _just_ MRC _or_ Morpheus, _or a subset_ of their projects:
+```
+build-mrc
+build-mrc-cpp
+build-mrc-python
+build-morpheus
+build-libmorpheus-cpp
+build-morpheus-python
+```
+
+Running MRC and Morpheus
+-
+Now that MRC and Morpheus are built _and in-place installed_, it's possible to import them in Python, but if this is your first time launching the container, make sure you have activated the `cyber` conda environment - subsequent launches of the container should automatically activate the environment.
+```
+conda activate cyber
+```
+```
+python -c "from morpheus import messages"
+```
