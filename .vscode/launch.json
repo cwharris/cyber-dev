@@ -1,0 +1,47 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Launch",
+            "type": "python",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/morpheus/examples/simple/run.py",
+        },
+        {
+            "name": "C++ Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "/home/coder/.conda/envs/cyber/bin/python",
+            "args": [
+                "${workspaceFolder}/morpheus/examples/simple/run.py"
+            ],
+            "MIMode": "gdb",
+            "miDebuggerPath": "/home/coder/.conda/envs/cyber/bin/gdb",
+            "externalConsole": false,
+            "symbolLoadInfo": {
+                "loadAll": false,
+                "exceptionList": "libmrc*.so;cudf_helpers.*;executor.*;libmorpheus.*;node.*;options.*;pipeline.*;segment.*;subscriber.*;stages.*;messages.*;common*.so;operators.*;plugins.*;logging.*;modules.*"
+            },
+        },
+        {
+            "name": "C++ Attach to Python",
+            "type": "cppdbg",
+            "request": "attach",
+            "program": "/home/coder/.conda/envs/cyber/bin/python",
+            "processId": "${command:pickProcess}",
+            "MIMode": "gdb",
+            "miDebuggerPath": "/home/coder/.conda/envs/cyber/bin/gdb",
+            "symbolLoadInfo": {
+                "loadAll": false,
+                "exceptionList": "libmrc*.so;cudf_helpers.*;executor.*;libmorpheus.*;node.*;options.*;pipeline.*;segment.*;subscriber.*;stages.*;messages.*;common*.so;operators.*;plugins.*;logging.*;modules.*"
+            },
+        },
+    ]
+}
+// /home/coder/morpheus
+// /home/coder/mrc
