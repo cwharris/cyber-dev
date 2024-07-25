@@ -6,7 +6,7 @@
     "args": {
       "CUDA": "12.1",
       "RAPIDS": "24.02",
-      "BASE": "rapidsai/devcontainers:24.02-cpp-mambaforge-ubuntu22.04"
+      "BASE": "rapidsai/devcontainers:24.06-cpp-mambaforge-ubuntu22.04"
     }
   },
   "capAdd": [

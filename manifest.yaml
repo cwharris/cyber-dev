@@ -1,6 +1,6 @@
 x-git-defaults: &git_defaults
     host: github
-    tag: branch-23.11
+    tag: branch-24.06
     upstream: nv-morpheus
 
 repos:
