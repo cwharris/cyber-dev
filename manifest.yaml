@@ -11,8 +11,9 @@ repos:
     - name: mrc
       sub_dir: ""
       depends: []
-      args: |
-        -DMRC_PYTHON_INPLACE_BUILD=ON
+      args:
+        cmake: |
+          -DMRC_PYTHON_INPLACE_BUILD=ON
   python:
     - name: mrc
       sub_dir: python
@@ -27,8 +28,9 @@ repos:
     - name: libmorpheus
       sub_dir: ""
       depends: [mrc]
-      args: |
-        -DMORPHEUS_PYTHON_INPLACE_BUILD=ON
+      args:
+        cmake: |
+          -DMORPHEUS_PYTHON_INPLACE_BUILD=ON
   python:
     - name: morpheus
       sub_dir: ""
