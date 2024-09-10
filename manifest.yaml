@@ -1,7 +1,7 @@
 x-git-defaults: &git_defaults
     host: github
-    tag: branch-24.06
-    upstream: nv-morpheus
+    tag: branch-24.06-rapids-24.06
+    upstream: cwharris
 
 repos:
 
@@ -13,6 +13,7 @@ repos:
       depends: []
       args:
         cmake: |
+          -DMRC_BUILD_TESTS=ON
           -DMRC_PYTHON_INPLACE_BUILD=ON
   python:
     - name: mrc
@@ -30,6 +31,7 @@ repos:
       depends: [mrc]
       args:
         cmake: |
+          -DMORPHEUS_BUILD_TESTS=ON
           -DMORPHEUS_PYTHON_INPLACE_BUILD=ON
   python:
     - name: morpheus

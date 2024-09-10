@@ -5,11 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python Launch",
-            "type": "python",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "program": "${workspaceFolder}/morpheus/examples/simple/run.py",
+            "name": "Python Attach",
+            "type": "debugpy",
+            "request": "attach",
+            "processId": "${command:pickProcess}"
         },
         {
             "name": "C++ Launch",
