@@ -4,9 +4,9 @@
   "build": {
     "context": "${localWorkspaceFolder}/.devcontainer/default",
     "args": {
-      "CUDA": "12.4",
-      "RAPIDS": "24.08",
-      "BASE": "rapidsai/devcontainers:24.06-cpp-mambaforge-ubuntu22.04"
+      "CUDA": "12.5",
+      "RAPIDS": "24.10",
+      "BASE": "rapidsai/devcontainers:24.10-cpp-mambaforge-ubuntu22.04"
     }
   },
   "capAdd": [
@@ -20,7 +20,7 @@
     "PROJECT_MANIFEST_YML": "/home/coder/cyber-dev/manifest.yaml",
     "PYTHON_PACKAGE_MANAGER": "conda",
     "DEFAULT_CONDA_ENV": "cyber",
-    "CUDA_VERSION": "12.4",
+    "CUDA_VERSION": "12.5",
     "CUDAARCHS": "RAPIDS",
     "MORPHEUS_ROOT": "/home/coder/morpheus",
     "MRC_ROOT": "/home/coder/mrc"
@@ -39,7 +39,7 @@
   "initializeCommand": [
     "/bin/bash",
     "-c",
-    "mkdir -m 0755 -p ${localWorkspaceFolder}/../.{aws,cache,config,conda/pkgs,conda/${localWorkspaceFolderBasename}-cuda12.4-envs} ${localWorkspaceFolder}/../{mrc,morpheus} ${localWorkspaceFolder}/.vscode"],
+    "mkdir -m 0755 -p ${localWorkspaceFolder}/../.{aws,cache,config,conda/pkgs,conda/${localWorkspaceFolderBasename}-cuda12.5-envs} ${localWorkspaceFolder}/../{mrc,morpheus} ${localWorkspaceFolder}/.vscode"],
   "postAttachCommand": [
     "/bin/bash",
     "-c",
@@ -54,7 +54,7 @@
     "source=${localWorkspaceFolder}/../.cache,target=/home/coder/.cache,type=bind,consistency=consistent",
     "source=${localWorkspaceFolder}/../.config,target=/home/coder/.config,type=bind,consistency=consistent",
     "source=${localWorkspaceFolder}/../.conda/pkgs,target=/home/coder/.conda/pkgs,type=bind,consistency=consistent",
-    "source=${localWorkspaceFolder}/../.conda/${localWorkspaceFolderBasename}-cuda12.4-envs,target=/home/coder/.conda/envs,type=bind,consistency=consistent",
+    "source=${localWorkspaceFolder}/../.conda/${localWorkspaceFolderBasename}-cuda12.5-envs,target=/home/coder/.conda/envs,type=bind,consistency=consistent",
     "source=${localWorkspaceFolder}/../mrc,target=/home/coder/mrc,type=bind,consistency=consistent",
     "source=${localWorkspaceFolder}/../morpheus,target=/home/coder/morpheus,type=bind,consistency=consistent",
     "source=${localWorkspaceFolder}/.vscode,target=/home/coder/.vscode,type=bind,consistency=consistent",
