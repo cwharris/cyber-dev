@@ -22,6 +22,7 @@
     "DEFAULT_CONDA_ENV": "cyber",
     "CUDA_VERSION": "12.5",
     "CUDAARCHS": "RAPIDS",
+    "CUDF_ROOT": "/home/coder/cudf",
     "MORPHEUS_ROOT": "/home/coder/morpheus",
     "MRC_ROOT": "/home/coder/mrc"
   },
@@ -39,7 +40,7 @@
   "initializeCommand": [
     "/bin/bash",
     "-c",
-    "mkdir -m 0755 -p ${localWorkspaceFolder}/../.{aws,cache,config,conda/pkgs,conda/${localWorkspaceFolderBasename}-cuda12.5-envs} ${localWorkspaceFolder}/../{mrc,morpheus} ${localWorkspaceFolder}/.vscode"],
+    "mkdir -m 0755 -p ${localWorkspaceFolder}/../.{aws,cache,config,conda/pkgs,conda/${localWorkspaceFolderBasename}-cuda12.5-envs} ${localWorkspaceFolder}/../{cudf,mrc,morpheus} ${localWorkspaceFolder}/.vscode"],
   "postAttachCommand": [
     "/bin/bash",
     "-c",
@@ -55,6 +56,7 @@
     "source=${localWorkspaceFolder}/../.config,target=/home/coder/.config,type=bind,consistency=consistent",
     "source=${localWorkspaceFolder}/../.conda/pkgs,target=/home/coder/.conda/pkgs,type=bind,consistency=consistent",
     "source=${localWorkspaceFolder}/../.conda/${localWorkspaceFolderBasename}-cuda12.5-envs,target=/home/coder/.conda/envs,type=bind,consistency=consistent",
+    "source=${localWorkspaceFolder}/../cudf,target=/home/coder/cudf,type=bind,consistency=consistent",
     "source=${localWorkspaceFolder}/../mrc,target=/home/coder/mrc,type=bind,consistency=consistent",
     "source=${localWorkspaceFolder}/../morpheus,target=/home/coder/morpheus,type=bind,consistency=consistent",
     "source=${localWorkspaceFolder}/.vscode,target=/home/coder/.vscode,type=bind,consistency=consistent",

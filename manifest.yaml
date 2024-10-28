@@ -1,9 +1,51 @@
 x-git-defaults: &git_defaults
     host: github
-    tag: rapids-24.10
-    upstream: cwharris
+    tag: branch-24.10
+    upstream: nv-morpheus
+
+x-rapids-build-backend-args: &rapids_build_backend_args |
+  --config-settings "skbuild.strict-config=false"
+  --config-settings "rapidsai.disable-cuda=true"
+  --config-settings "rapidsai.matrix-entry=cuda=${CUDA_VERSION_MAJOR_MINOR}"
 
 repos:
+
+- name: cudf
+  path: cudf
+  git: {<<: *git_defaults, tag: branch-24.10, upstream: rapidsai, repo: cudf}
+  cpp:
+    - name: cudf
+      sub_dir: cpp
+      # depends: [KvikIO]
+    - name: cudf_kafka
+      sub_dir: cpp/libcudf_kafka
+      depends: [cudf]
+  python:
+    - name: libcudf
+      sub_dir: python/libcudf
+      depends: [cudf]
+      args: {install: *rapids_build_backend_args}
+    - name: pylibcudf
+      sub_dir: python/pylibcudf
+      depends: [cudf]
+      args: {install: *rapids_build_backend_args}
+    - name: cudf
+      sub_dir: python/cudf
+      depends: [cudf]
+      args: {install: *rapids_build_backend_args}
+    - name: dask_cudf
+      sub_dir: python/dask_cudf
+      args: {install: *rapids_build_backend_args}
+    - name: cudf_polars
+      sub_dir: python/cudf_polars
+      args: {install: *rapids_build_backend_args}
+    - name: cudf_kafka
+      sub_dir: python/cudf_kafka
+      depends: [cudf_kafka]
+      args: {install: *rapids_build_backend_args}
+    - name: custreamz
+      sub_dir: python/custreamz
+      args: {install: *rapids_build_backend_args}
 
 - name: mrc
   path: mrc
