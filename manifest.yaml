@@ -37,6 +37,8 @@ repos:
     - name: morpheus
       sub_dir: python/morpheus
       depends: []
+      args:
+        install: --use-pep517 # force PEP 517 behavior during installation to avoid easy_install, which requires the METADATA from *.egg-info, which is deleted by rapids build utils.
     - name: morpheus_llm
       sub_dir: python/morpheus_llm
       depends: [morpheus]

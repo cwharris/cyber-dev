@@ -17,6 +17,7 @@
       "seccomp=unconfined"
   ],
   "containerEnv": {
+    "HOST_MORPHEUS_ROOT": "${localWorkspaceFolder}/../morpheus",
     "PROJECT_MANIFEST_YML": "/home/coder/cyber-dev/manifest.yaml",
     "PYTHON_PACKAGE_MANAGER": "conda",
     "DEFAULT_CONDA_ENV": "cyber",
