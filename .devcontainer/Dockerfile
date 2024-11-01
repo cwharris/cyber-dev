@@ -15,8 +15,7 @@ ARG SCCACHE_REGION="us-east-2"
 ENV SCCACHE_REGION="$SCCACHE_REGION"
 ARG SCCACHE_BUCKET="rapids-sccache-devs"
 ENV SCCACHE_BUCKET="$SCCACHE_BUCKET"
-ARG VAULT_HOST="https://vault.ops.k8s.rapids.ai"
-ENV VAULT_HOST="$VAULT_HOST"
+ENV AWS_ROLE_ARN="arn:aws:iam::279114543810:role/nv-gha-token-sccache-devs"
 
 ENV HISTFILE="/home/coder/.cache/._bash_history"
 
